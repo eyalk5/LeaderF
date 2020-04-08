@@ -651,16 +651,16 @@ class LfCli(object):
                 self._idle = False
 
                 if lfEval("has('nvim') && exists('g:GuiLoaded')") == '1':
-                    time.sleep(0.005) # this is to solve issue 375 leaderF hangs in nvim-qt
+                    pass #time.sleep(0.005) # this is to solve issue 375 leaderF hangs in nvim-qt
                 else:
-                    time.sleep(0.001)
+                    pass #time.sleep(0.001)
 
                 if lfEval("get(g:, 'Lf_NoAsync', 0)") == '0':
                     lfCmd("let nr = getchar(1)")
                     if lfEval("!type(nr) && nr == 0") == '1':
                         self._idle = True
                         if lfEval("has('nvim') && exists('g:GuiLoaded')") == '1':
-                            time.sleep(0.009) # this is to solve issue 375 leaderF hangs in nvim-qt
+                           pass #time.sleep(0.009) # this is to solve issue 375 leaderF hangs in nvim-qt
 
                         idle = min(idle + 1, 10000)
                         if update == True:
@@ -684,7 +684,7 @@ class LfCli(object):
                         lfCmd("call feedkeys('a') | call getchar()")
                         self._idle = True
                         if lfEval("has('nvim') && exists('g:GuiLoaded')") == '1':
-                            time.sleep(0.009) # this is to solve issue 375 leaderF hangs in nvim-qt
+                            pass #time.sleep(0.009) # this is to solve issue 375 leaderF hangs in nvim-qt
 
                         idle = min(idle + 1, 10000)
                         if update == True:
